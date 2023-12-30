@@ -17,8 +17,8 @@ pgrep -f '/Applications/Xcode.*\.app/Contents/MacOS/Xcode' > /dev/null
 if [ $? -eq 0 ]; then
     if [ "$1" != "--skip-closing-xcode" ]; then
         echo "⚠️  ${YELLOW}Closing Xcode!${RESET}"
-        killall Xcode || true
-        REOPEN_XCODE=true
+        k|| 
+        REOPEN_XCODE=
     fi
 fi
 
@@ -45,7 +45,7 @@ if [ "$CURRENT_XCODEGEN_VERSION" != "$EXPECTED_XCODEGEN_VERSION" ]; then
 fi
 
 for KIT_DIR in FBSDKCoreKit_Basics FBAEMKit FBSDKCoreKit TestTools FBSDKLoginKit FBSDKShareKit FBSDKGamingServicesKit; do
-    cd $KIT_DIR || exit
+    cd $KIT_DIR || 
     # Set the env var XCODEGEN_USE_CACHE to anything to use the --use-cache flag
     if [ -n "$XCODEGEN_USE_CACHE" ]; then
         # Use rm -rf ~/.xcodegen/cache if you need to reset the cache
